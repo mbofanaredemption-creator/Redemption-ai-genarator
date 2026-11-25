@@ -1,91 +1,185 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Redemption AI Generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redemption AI Studio</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#0b1020;color:#f5f7ff;font-family:Arial,sans-serif}
-header{padding:24px 18px;background:linear-gradient(135deg,#172554,#312e81)}
-.logo{font-size:13px;letter-spacing:3px;color:#a5b4fc}
-h1{font-size:27px;margin:12px 0 8px}
-header p{color:#dbeafe;font-size:14px}
-main{max-width:850px;margin:auto;padding:18px}
-h2{font-size:20px}
-.panel{background:#151d32;border:1px solid #293653;border-radius:15px;padding:17px;margin:16px 0}
-textarea{width:100%;min-height:105px;background:#0b1020;color:white;border:1px solid #3b4968;border-radius:10px;padding:13px;font:15px Arial;resize:vertical}
-button{background:#6366f1;color:white;border:0;border-radius:9px;padding:12px 16px;font-size:14px;font-weight:bold;cursor:pointer;margin-top:10px}
-button:active{opacity:.8}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:12px}
-.tool{background:#151d32;border:1px solid #293653;border-radius:13px;padding:15px}
-.tool strong{display:block;margin:7px 0}
-.tool span{font-size:25px}
-.small{font-size:12px;color:#aab6d0;line-height:1.5}
-#result{white-space:pre-wrap;line-height:1.6;color:#dbeafe}
-footer{text-align:center;color:#8491ad;padding:25px;font-size:12px}
+body{margin:0;background:#080d1b;color:#f5f7ff;font-family:Arial,sans-serif}
+header{padding:25px 18px;background:linear-gradient(130deg,#172554,#581c87)}
+header h1{font-size:27px;margin:12px 0}
+header p{color:#dbeafe}
+main{max-width:850px;margin:auto;padding:17px}
+.panel{background:#151d32;border:1px solid #34415e;border-radius:15px;padding:17px;margin:16px 0}
+h2{font-size:19px}
+h3{color:#a5b4fc}
+.small{font-size:13px;color:#aab6d0;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tile{background:#19243c;border:1px solid #34415e;border-radius:12px;padding:14px}
+.tile span{font-size:25px}
+.tile strong{display:block;margin-top:8px}
+textarea,input,select{width:100%;padding:12px;margin:7px 0 13px;background:#0b1020;color:white;border:1px solid #475569;border-radius:9px;font-size:15px}
+textarea{min-height:90px}
+label{font-size:13px;color:#cbd5e1}
+button,.link{display:inline-block;background:#6366f1;color:white;border:0;border-radius:9px;padding:12px 15px;font-weight:bold;text-decoration:none;margin:5px 3px 5px 0}
+.result{background:#0b1020;border-radius:10px;padding:13px;white-space:pre-wrap;line-height:1.6;font-size:13px;overflow-wrap:anywhere}
+footer{text-align:center;padding:25px;color:#8290aa;font-size:12px}
+@media(max-width:400px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header>
-<div class="logo">REDEMPTION AI STUDIOS</div>
+<div>⭐ REDEMPTION AI STUDIOS</div>
 <h1>REDEMPTION AI GENERATOR</h1>
 <p>Every story has a secret.</p>
+<p class="small">Your personal cinematic movie-making studio.</p>
 </header>
 
 <main>
+
 <section class="panel">
-<h2>🎬 Story Writer</h2>
-<p class="small">Start with an idea. Create a movie story outline.</p>
-<textarea id="idea" placeholder="Describe your movie idea..."></textarea>
-<button onclick="makeStory()">Create Story Outline</button>
-<div id="result"></div>
+<h2>🎬 Movie Studio</h2>
+<p class="small">Create a story, plan your scenes and prepare animation prompts.</p>
+<a class="link" href="movie-studio.html">Open Movie Studio →</a>
 </section>
 
-<h2>🛠️ Your AI Studio</h2>
+<h2>🛠️ Your Creative Tools</h2>
 <div class="grid">
-<div class="tool"><span>👤</span><strong>Character Studio</strong><div class="small">Keep your characters consistent.</div></div>
-<div class="tool"><span>🖼️</span><strong>Scene Creator</strong><div class="small">Plan cinematic movie scenes.</div></div>
-<div class="tool"><span>🎞️</span><strong>Image Animator</strong><div class="small">Turn pictures into moving scenes.</div></div>
-<div class="tool"><span>🎙️</span><strong>AI Narrator</strong><div class="small">Plan narration for your movies.</div></div>
-<div class="tool"><span>✂️</span><strong>Movie Maker</strong><div class="small">Prepare scenes for editing.</div></div>
-<div class="tool"><span>📱</span><strong>Shorts Export</strong><div class="small">Plan vertical 9:16 videos.</div></div>
+<div class="tile"><span>✍️</span><strong>Story Writer</strong><p class="small">Develop movie ideas and scripts.</p></div>
+<div class="tile"><span>👤</span><strong>Character Studio</strong><p class="small">Maintain consistent characters.</p></div>
+<div class="tile"><span>🖼️</span><strong>Scene Creator</strong><p class="small">Prepare cinematic scene prompts.</p></div>
+<div class="tile"><span>🚶</span><strong>Body Animation</strong><p class="small">Plan walking, running and gestures.</p></div>
+<div class="tile"><span>🗣️</span><strong>Talking Characters</strong><p class="small">Prepare dialogue and lip-sync prompts.</p></div>
+<div class="tile"><span>🎙️</span><strong>AI Voices</strong><p class="small">Prepare narration and character voices.</p></div>
+<div class="tile"><span>🎞️</span><strong>Video Animator</strong><p class="small">Prepare image-to-video prompts.</p></div>
+<div class="tile"><span>✂️</span><strong>Movie Editor</strong><p class="small">Plan your finished movie.</p></div>
 </div>
 
 <section class="panel">
-<h2>⭐ Main Character</h2>
-<strong>Redemption</strong>
-<p class="small">Our recurring movie character. Keep his identity and appearance consistent across stories.</p>
+<h2>👤 Character Studio</h2>
+<h3>REDEMPTION — Main Character</h3>
+<p class="small">
+17-year-old Black teenage boy. Short curly black hair,
+medium-dark brown skin, dark brown eyes, royal blue hoodie,
+white T-shirt, black cargo trousers, blue and white sneakers,
+black backpack and black wristwatch.
+</p>
+<p class="small">Character identity must remain consistent in every scene. Preserve his face, hairstyle, skin tone and recognizable appearance.</p>
 </section>
 
 <section class="panel">
-<h2>🚀 Project status</h2>
-<p class="small">Version 1 — Website dashboard prototype.</p>
-<p class="small">AI image, video and voice services will be connected in later stages. Story Outline currently creates a simple local draft, not an AI-generated story.</p>
+<h2>🎥 Animation Prompt Builder</h2>
+<p class="small">Describe what your character should do. Create a detailed prompt for an external animation service.</p>
+
+<label>Character action</label>
+<select id="action">
+<option>Walking naturally towards the camera</option>
+<option>Running through the city</option>
+<option>Turning around and looking behind</option>
+<option>Picking up an object</option>
+<option>Sitting down naturally</option>
+<option>Standing and talking</option>
+<option>Walking while talking</option>
+<option>Using natural hand gestures</option>
+</select>
+
+<label>Facial expression</label>
+<select id="emotion">
+<option>Natural and relaxed</option>
+<option>Surprised</option>
+<option>Happy and smiling</option>
+<option>Worried and nervous</option>
+<option>Confused and curious</option>
+<option>Serious and determined</option>
+</select>
+
+<label>Dialogue</label>
+<textarea id="dialogue" placeholder="Example: What is this phone doing here?"></textarea>
+
+<label>Scene environment</label>
+<textarea id="environment" placeholder="Describe the location, weather, lighting and surroundings..."></textarea>
+
+<label>Camera movement</label>
+<select id="camera">
+<option>Camera smoothly follows the character</option>
+<option>Slow cinematic camera push-in</option>
+<option>Wide establishing camera shot</option>
+<option>Side tracking shot</option>
+<option>Close-up of the character's face</option>
+</select>
+
+<button onclick="buildPrompt()">Create Animation Prompt</button>
+<div id="animationResult" class="result">Your animation prompt will appear here.</div>
+<button onclick="copyPrompt()">Copy Animation Prompt</button>
 </section>
+
+<section class="panel">
+<h2>🎞️ Movie Production</h2>
+<p class="small">Our planned production pipeline:</p>
+<div class="result">
+1. Write the movie script.
+2. Create consistent character references.
+3. Generate cinematic scene images.
+4. Animate body movements.
+5. Generate voices and dialogue.
+6. Synchronize lip movements.
+7. Combine clips into a movie.
+8. Export a vertical YouTube Short.
+</div>
+</section>
+
+<section class="panel">
+<h2>🚀 Studio Status</h2>
+<p class="small">Version 2 — Creative dashboard and animation prompt builder.</p>
+<p class="small">Actual AI video generation, character motion, voice synthesis and lip-sync are not connected yet. They will require suitable external AI services and a secure backend.</p>
+</section>
+
 </main>
 
-<footer>REDEMPTION AI STUDIOS · Every story has a secret.</footer>
+<footer>
+REDEMPTION AI STUDIOS<br>
+Every story has a secret.
+</footer>
 
 <script>
-function makeStory(){
- const idea=document.getElementById("idea").value.trim();
- const result=document.getElementById("result");
- if(!idea){result.textContent="Please enter a movie idea first.";return;}
- result.textContent=
- "YOUR MOVIE OUTLINE\n\n"+
- "IDEA: "+idea+"\n\n"+
- "SCENE 1 — THE BEGINNING\n"+
- "Introduce the main character and the location. Show what a normal day looks like.\n\n"+
- "SCENE 2 — THE MYSTERY\n"+
- "Something unexpected happens and changes the character's plans.\n\n"+
- "SCENE 3 — THE DISCOVERY\n"+
- "The character finds a clue and starts asking questions.\n\n"+
- "SCENE 4 — THE TWIST\n"+
- "A surprising new detail changes everything.\n\n"+
- "SCENE 5 — THE ENDING\n"+
- "Finish with a memorable moment or a cliffhanger.\n\n"+
- "Next step: develop each scene with detailed visual prompts.";
+let latestPrompt="";
+
+function buildPrompt(){
+const action=document.getElementById("action").value;
+const emotion=document.getElementById("emotion").value;
+const dialogue=document.getElementById("dialogue").value.trim();
+const environment=document.getElementById("environment").value.trim();
+const camera=document.getElementById("camera").value;
+
+latestPrompt=
+"CHARACTER: Redemption, a 17-year-old boy. Preserve his established face, short curly black hair, medium-dark brown skin, dark brown eyes and royal blue hoodie, white T-shirt, black cargo trousers, blue and white sneakers, backpack and wristwatch.\n\n"+
+"ACTION: "+action+". Show natural human body movement, believable balance, coordinated arms and legs, realistic timing and smooth transitions.\n\n"+
+"FACIAL EXPRESSION: "+emotion+". Include natural blinking, eye movement and expressive facial animation.\n\n"+
+"DIALOGUE: "+(dialogue||"No spoken dialogue.")+"\n\n"+
+"VOICE AND LIP SYNC: "+(dialogue?"Speak the supplied dialogue naturally and synchronize mouth movements with every spoken word.":"No speech in this scene.")+"\n\n"+
+"ENVIRONMENT: "+(environment||"A detailed cinematic environment appropriate to the story.")+"\n\n"+
+"CAMERA: "+camera+".\n\n"+
+"VISUAL STYLE: High-quality cinematic 3D animated film, coherent lighting, detailed surroundings, natural character movement and consistent character identity.\n\n"+
+"CONTINUITY: Keep the same character appearance throughout the entire movie.";
+
+document.getElementById("animationResult").textContent=latestPrompt;
+}
+
+function copyPrompt(){
+if(!latestPrompt){
+alert("Create an animation prompt first.");
+return;
+}
+if(navigator.clipboard){
+navigator.clipboard.writeText(latestPrompt)
+.then(()=>alert("Animation prompt copied!"))
+.catch(()=>alert("Please select and copy the prompt manually."));
+}else{
+alert("Please select and copy the prompt manually.");
+}
 }
 </script>
 </body>
