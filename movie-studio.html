@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redemption Movie Studio</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1020;color:#fff;font-family:Arial,sans-serif}
+header{padding:24px;background:linear-gradient(130deg,#172554,#4c1d95)}
+header h1{font-size:25px;margin:10px 0}
+header p,.muted{color:#cbd5e1;font-size:13px}
+main{padding:18px;max-width:800px;margin:auto}
+.panel,.scene{background:#151d32;border:1px solid #34415e;border-radius:14px;padding:16px;margin:15px 0}
+textarea,input,select{width:100%;padding:13px;margin:8px 0;background:#0b1020;color:white;border:1px solid #475569;border-radius:9px;font-size:15px}
+textarea{min-height:130px}
+button{background:#6366f1;color:white;border:0;padding:13px 17px;border-radius:9px;font-weight:bold;margin-top:8px}
+.scene h3{color:#a5b4fc}
+.prompt{white-space:pre-wrap;line-height:1.5;font-size:14px;color:#dbeafe}
+</style>
+</head>
+<body>
+<header>
+<div>REDEMPTION AI STUDIOS</div>
+<h1>🎬 Movie Studio</h1>
+<p>Turn your imagination into movie scenes.</p>
+</header>
+<main>
+<section class="panel">
+<h2>✍️ Your Movie Story</h2>
+<p class="muted">Describe what happens in your movie.</p>
+<textarea id="story" placeholder="Example: Redemption walks through a mysterious city and discovers a strange phone..."></textarea>
+
+<label>Number of scenes</label>
+<select id="count">
+<option value="3">3 scenes</option>
+<option value="4">4 scenes</option>
+<option value="5" selected>5 scenes</option>
+<option value="6">6 scenes</option>
+</select>
+
+<button onclick="createMovie()">Create Movie Scenes</button>
+</section>
+
+<section class="panel">
+<h2>👤 Main Character</h2>
+<p class="muted">Redemption — recurring character identity</p>
+<p>17-year-old Black teenage boy, short curly black hair, medium-dark brown skin, dark brown eyes, royal blue hoodie, white T-shirt, black cargo trousers, blue and white sneakers, black backpack and black wristwatch.</p>
+</section>
+
+<h2>🎞️ Your Scenes</h2>
+<div id="scenes" class="muted">Your movie scenes will appear here.</div>
+</main>
+
+<script>
+function createMovie(){
+ const story=document.getElementById("story").value.trim();
+ const count=Number(document.getElementById("count").value);
+ const output=document.getElementById("scenes");
+ if(!story){
+  output.textContent="Please enter your movie story first.";
+  return;
+ }
+ const parts=story.split(/[.!?]+/).map(x=>x.trim()).filter(Boolean);
+ const names=["THE BEGINNING","THE DISCOVERY","A NEW MYSTERY","THE JOURNEY","THE BIG TWIST","THE ENDING"];
+ output.innerHTML="";
+ for(let i=0;i<count;i++){
+  const moment=parts[i%parts.length];
+  const title=names[i]||"ANOTHER MOMENT";
+  const prompt=
+"CHARACTER: Redemption, same face, hairstyle and clothing in every scene.\n"+
+"STORY ACTION: "+moment+".\n"+
+"VISUAL STYLE: Cinematic 3D animated film, detailed environment, expressive characters, realistic lighting and coherent perspective.\n"+
+"CAMERA: Wide cinematic shot, clear subject focus.\n"+
+"CONTINUITY: Preserve Redemption's identity and outfit.";
+  const card=document.createElement("div");
+  card.className="scene";
+  const heading=document.createElement("h3");
+  heading.textContent="SCENE "+(i+1)+" — "+title;
+  const paragraph=document.createElement("div");
+  paragraph.className="prompt";
+  paragraph.textContent=prompt;
+  const copy=document.createElement("button");
+  copy.textContent="Copy Scene Prompt";
+  copy.onclick=()=>navigator.clipboard.writeText(prompt).then(()=>copy.textContent="Copied!");
+  card.append(heading,paragraph,copy);
+  output.append(card);
+ }
+}
+</script>
+</body>
+</html>
